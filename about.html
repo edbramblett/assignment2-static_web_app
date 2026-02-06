@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About – Character Gallery</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #152033;
+            color: #ffffff;
+        }
+
+        header {
+            padding: 20px;
+            background: #000000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .about-grid img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #93c5fd;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 800px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>About This Site</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="details.html">Details</a>
+        <a href="new-character-form.html">New Character Form</a>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="about-grid">
+
+        <div>
+            <h2>Purpose of the Website</h2>
+            <p>
+                The purpose of the website was to make a gallery of characters as an assignment for my CSC340 class. The website is designed to showcase a collection of characters from various universes, allowing users to explore their details and learn more about them.
+            </p>
+            <p>
+                I made this website to practice my HTML and CSS skills, and to create an interactive way for users to search for and learn about characters.
+            </p>
+        </div>
+
+    <div>
+      <img src="https://tse1.mm.bing.net/th/id/OIP.i2KStb-DpKINezYTR9inxQHaC-?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Marvel Characters">
+    </div>
+
+</body>
+</html>
