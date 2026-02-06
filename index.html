@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Character Gallery</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: #e5e7eb;
+        }
+
+        header {
+            padding: 20px;
+            background: #020617;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+
+        nav a {
+            color: #93c5fd;
+            text-decoration: none;
+            margin-left: 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .search-container {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .search-container input {
+            width: 60%;
+            max-width: 400px;
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 6px;
+            border: none;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .card {
+            background: #020617;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 15px;
+        }
+
+        .card-content h2 {
+            margin-top: 0;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #1d4ed8;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 5px;
+        }
+
+        .hidden {
+            display: none !important;
+        }   
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Marvel Character Gallery</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="details.html">Details</a>
+        <a href="new-character-form.html">New Character Form</a>
+    </nav>
+</header>
+
+<div class="search-container">
+    <input
+            type="text"
+            id="searchInput"
+            placeholder="Search by name, role, or power..."
+            onkeyup="filterCharacters()"
+    >
+</div>
+
+<div class="gallery" id="gallery">
+
+    <div class="card" data-search="spider-man hero avenger human enhanced">
+            <img src="https://i.kickstarter.com/assets/036/105/653/b9b94db8a092fa219b06909532a233a8_original.jpg?fit=scale-down&origin=ugc&q=92&v=1642557592&width=700&sig=gvoTeg36oL2o2tHT%2Fey9tloBmnBW71xz9PGQ7swjtlw%3D" alt="Spider-Man">
+            <div class="card-content">
+            <h2>Spider-Man</h2>
+            <p>Universe: Marvel</p>
+            <p>Friendly neighborhood hero with spider-like powers.</p>
+            </div>
+    </div>
+
+  <div class="card" data-search="iron man hero avenger human tech genius">
+        <img src="https://i.kickstarter.com/assets/036/102/587/c4f8c6bae5d7f81e3a51e1c6504a9cd3_original.jpg?fit=scale-down&origin=ugc&q=92&v=1642536224&width=700&sig=tdaubeECeKnBAxA3O8FacIRPTunk1%2FJIkarFVplavxk%3D" alt="Iron Man">
+        <div class="card-content">
+            <h2>Iron Man</h2>
+            <p>Universe: Marvel</p>
+            <p>Genius inventor using advanced powered armor.</p>
+        </div>
+  </div>
+
+  <div class="card" data-search="captain america hero avenger super soldier">
+        <img src="https://i.kickstarter.com/assets/036/193/426/c44c85bbfa3555afd7cff7b42a97eedb_original.jpg?fit=scale-down&origin=ugc&q=92&v=1643358197&width=700&sig=Ohw35zgguMzIGSA0z3jp6rSCcax3nVKNKocaS1kJm1k%3D" alt="Captain America">
+        <div class="card-content">
+            <h2>Captain America</h2>
+            <p>Universe: Marvel</p>
+            <p>Super soldier and inspirational leader.</p>
+        </div>
+  </div>
+
+  <div class="card" data-search="scarlet witch hero avenger magic mutant">
+        <img src="https://i.kickstarter.com/assets/036/105/683/ba1feb7edf7aed4f7fc82d3f06ba4882_original.jpg?fit=scale-down&origin=ugc&q=92&v=1642557889&width=700&sig=V6ArThSFai5c4B4BSMIiQ3Qr547cwwTbnHf0wXkTlqk%3D" alt="Scarlet Witch">
+        <div class="card-content">
+            <h2>Scarlet Witch</h2>
+            <p>Universe: Marvel</p>
+            <p>Reality-warping magic user.</p>
+        </div>
+  </div>
+
+  <div class="card" data-search="thor hero avenger god asgardian">
+        <img src="https://i.kickstarter.com/assets/036/105/697/46710a66b9383c579ea4461afd8fbb07_original.jpg?fit=scale-down&origin=ugc&q=92&v=1642557970&width=700&sig=YvRVEj8xDmnb236d%2FywyyMDP3jYLs83RiU7jGRSW1l4%3D" alt="Thor">
+        <div class="card-content">
+            <h2>Thor</h2>
+            <p>Universe: Marvel</p>
+            <p>God of Thunder wielding Mjolnir.</p>
+        </div>
+  </div>
+
+</div>
+
+<script>
+  function filterCharacters() {
+    const input = document.getElementById("searchInput").value.toLowerCase();
+    const cards = document.getElementsByClassName("card");
+
+    for (let i = 0; i < cards.length; i++) {
+      const searchData = cards[i].getAttribute("data-search");
+
+      if (searchData.includes(input)) {
+        cards[i].style.display = "";
+      } else {
+        cards[i].style.display = "none";
+      }
+    }
+  }
+</script>
+
+</body>
+</html>
